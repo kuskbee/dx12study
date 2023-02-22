@@ -1,5 +1,9 @@
 #include "pch.h"
 #include "Engine.h"
+#include "Device.h"
+#include "CommandQueue.h"
+#include "SwapChain.h"
+#include "DescriptorHeap.h"
 
 void Engine::Init(const WindowInfo& info)
 {
@@ -10,7 +14,12 @@ void Engine::Init(const WindowInfo& info)
 	_viewport = { 0, 0, static_cast<FLOAT>(info.width), static_cast<FLOAT>(info.height), 0.0f, 1.0f };
 	_scissorRect = CD3DX12_RECT(0, 0, info.width, info.height);
 
+	_device = make_shared<Device>();
+	_cmdQueue = make_shared<CommandQueue>();
+	_swapChain = make_shared<SwapChain>();
+	_descHeap = make_shared<DescriptorHeap>();
 
+	_device->Init();
 }
 
 void Engine::Render()
