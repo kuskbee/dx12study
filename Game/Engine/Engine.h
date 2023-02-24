@@ -6,6 +6,10 @@ public:
 	void Init(const WindowInfo& info);
 	void Render();
 
+public:
+	void RenderBegin(); //cmdQueue에 일감 넣기
+	void RenderEnd(); // 맡긴 일감을 그리도록 시행
+
 	void ResizeWindow(int32 width, int32 height);
 
 private:

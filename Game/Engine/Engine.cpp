@@ -27,7 +27,23 @@ void Engine::Init(const WindowInfo& info)
 
 void Engine::Render()
 {
+	RenderBegin();
+
+	// TODO : 나머지 물체들 그려준다
+
+	RenderEnd();
 }
+
+void Engine::RenderBegin()
+{
+	_cmdQueue->RenderBegin(&_viewport, &_scissorRect);
+}
+
+void Engine::RenderEnd()
+{
+	_cmdQueue->RenderEnd();
+}
+
 
 // 실시간으로 윈도우 크기를 변경할 수 있도록 크기 인자를 받음.
 void Engine::ResizeWindow(int32 width, int32 height)
