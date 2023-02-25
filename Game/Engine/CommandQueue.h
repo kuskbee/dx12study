@@ -1,7 +1,6 @@
 #pragma once
 
 class SwapChain;
-class DescriptorHeap;
 
 class CommandQueue
 {
@@ -9,7 +8,7 @@ public:
 	~CommandQueue();
 
 	// 초기화 함수
-	void Init(ComPtr<ID3D12Device> device, shared_ptr<SwapChain> swapChain, shared_ptr<DescriptorHeap> descHeap);
+	void Init(ComPtr<ID3D12Device> device, shared_ptr<SwapChain> swapChain);
 	
 	// Fence를 이용하여 기다리는 함수.
 	void WaitSync();
@@ -35,6 +34,5 @@ private:
 	HANDLE								_fenceEvent = INVALID_HANDLE_VALUE;
 
 	shared_ptr<SwapChain>		_swapChain;
-	shared_ptr<DescriptorHeap>	_descHeap;
 };
 
