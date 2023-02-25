@@ -56,6 +56,12 @@ struct WindowInfo
 	bool	windowed; // 창모드 or 전체화면
 };
 
+struct Vertex
+{
+	Vec3 pos;
+	Vec4 color;
+};
+
 #define DEVICE			GEngine->GetDevice()->GetDevice()
 #define CMD_LIST		GEngine->GetCmdQueue()->GetCmdList()
 
